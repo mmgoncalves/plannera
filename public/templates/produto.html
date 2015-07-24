@@ -1,0 +1,44 @@
+<!-- chama a diretiva que carrega o menu -->
+<menu-principal></menu-principal>
+
+<section ng-controller="ProdutoController as p">
+    <div class="container-fluid">
+
+        <div class="col-md-3"></div>
+
+        <!-- Form de produtos com validação em angularJS -->
+        <form class="form-group col-md-4" name="form" novalidate ng-submit="p.addProduto()">
+
+            <h3 class="bg-info text-center" ng-show="p.retornoForm">{{ p.retornoForm }}</h3>
+
+            <!-- Campo codigo do produto -->
+            <div class="form-group has-feedback" ng-class="{'has-error':form.codigo.$error || p.codigoInvalido, 'has-success':!form.codigo.$error || !p.codigoInvalido}" >
+                <input type="number" class="form-control" placeholder="Código do produto" name="codigo" ng-blur="p.validaCodigo()" ng-model="p.codigo" required ng-minlength="1" min="1" max="99999999" ng-maxlength="8" maxlength="8">
+                <small>{{ p.errorMsg }}</small>
+                <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="form.codigo.$valid && !p.codigoInvalido"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="p.codigoInvalido || form.codigo.$error.required || form.codigo.$error.number || form.codigo.$error.maxlength || form.codigo.$error.minlength"></span>
+            </div>
+
+            <!-- Campo Nome do produto -->
+            <div class="form-group has-feedback" ng-class="{'has-error':form.nome.$error, 'has-success':!form.nome.$error}" >
+                <input type="text" class="form-control" placeholder="Nome do produto" name="nome" ng-model="p.nome" required maxlength="45">
+
+                <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="form.nome.$valid"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="form.nome.$error.required"></span>
+            </div>
+
+            <!-- Campo Quantidade do produto -->
+            <div class="form-group has-feedback" ng-class="{'has-error':form.quantidade.$error, 'has-success':!form.quantidade.$error}" >
+                <input type="number" class="form-control" placeholder="Quantidade vendida" name="quantidade" ng-model="p.quantidade" required ng-minlength="1" min="1" max="99999999" ng-maxlength="8" maxlength="8">
+
+                <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="form.quantidade.$valid"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="form.quantidade.$error.required || form.quantidade.$error.number || form.quantidade.$error.maxlength || form.quantidade.$error.minlength"></span>
+            </div>
+
+            <!-- Submit -->
+            <button class="btn btn-primary" type="submit" ng-disabled="form.$invalid || p.codigoInvalido">Cadastrar</button>
+
+        </form>
+
+    </div>
+</section>

@@ -1,0 +1,52 @@
+<!-- chama a diretiva que carrega o menu -->
+<menu-principal></menu-principal>
+
+<section ng-controller="EstatisticaController as e">
+    <div class="container-fluid">
+
+        <div class="col-md-3"></div>
+        <div class="col-md-8">
+            <h3>Estatística de produtos</h3>
+
+            <hr/>
+
+            <!-- Form -->
+            <form class="form-group col-md-4" name="form" novalidate ng-submit="e.mostraEstatistica()">
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Estatística do próximo mês" name="nome" ng-model="e.num" required ng-minlength="1" min="1" max="99999999" ng-maxlength="8" maxlength="8">
+                </div>
+
+                <button class="btn btn-primary" type="submit" ng-disabled="form.$invalid">Buscar</button>
+            </form>
+
+            <!-- Monta a tabela com o resultado da requisicao de produtos -->
+            <table class="table table-striped" ng-show="e.lista">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Porcentagem nas vendas</th>
+                        <th>Estatística do próximo mês</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="lista in e.lista">
+                        <td>{{ lista.codigo }}</td>
+                        <td>{{ lista.nome }}</td>
+                        <td>{{ lista.quantidade }}</td>
+                        <td>{{ lista.porcentagem }}%</td>
+                        <td>{{ lista.estatistica }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr/>
+
+            <h4 ng-show="e.total">Total de produtos vendidos: {{ e.total }}</h4>
+
+        </div>
+    </div>
+</section>
+

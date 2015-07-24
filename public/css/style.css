@@ -1,0 +1,11 @@
+body{
+    font-family: Verdana;
+}
+
+/*LOGIN*/
+
+.loginTopo{margin-bottom: 10px;display: inline-block}
+
+.topo{background: #238fcf; font-size: 30px; height: 100px; line-height: 100px; color: #fff;font-weight: bold; font-family: Lato; border-top: solid 2px #35DAFA;}
+.topo div{margin-left: 5%;}
+
