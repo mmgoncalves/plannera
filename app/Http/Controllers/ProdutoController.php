@@ -24,8 +24,8 @@ class ProdutoController extends Controller
         // Recebe os dados que vierem via POST em JSON
         $arrProduto = $request->json()->all();
 
-        // Chama o metodo que faz o insert na tabela
-        $resp = $this->prod->cadastrar($arrProduto);
+        // Cria o produto no banco
+        $resp = $this->prod->create($arrProduto);
 
         // Verifica da o retorno da requisicao
         if(!$resp){

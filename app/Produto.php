@@ -11,28 +11,6 @@ class Produto extends Model
     protected $fillable = ['codigo', 'nome', 'quantidade'];
 
     /*
-     * Método para cadastrar novo produto
-     */
-    public function cadastrar($arrProduto){
-
-        // verifica se o codigo ja existe
-        if(!$this->validaCodigo($arrProduto['codigo'])){
-            return false;
-        }
-
-        // cria o novo produto
-        $create = $this->create($arrProduto);
-
-        // verifica se o produto foi cadastrado com sucesso
-        if($create->attributes['id'] < 1){
-            return false;
-        }
-
-        // retorna o ID do produto criado
-        return $create->attributes['id'];
-    }
-
-    /*
      * Método que valida o codigo de um produto
      */
     public function validaCodigo($codigo){

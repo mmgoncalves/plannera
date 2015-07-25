@@ -3,11 +3,13 @@ var Mod = angular.module('App', ['ngRoute'])
 
    $routeProvider
     .when('/', {
-      templateUrl : 'templates/produto.html'
+      templateUrl : 'templates/produto.html',
+      controller : 'ProdutoController'
    })
 
    .when('/estatisticas', {
-       templateUrl : 'templates/estatisticas.html'
+       templateUrl : 'templates/estatisticas.html',
+       controller : 'EstatisticaController'
    })
 
    // caso não seja nenhum desses, redirecione para a rota '/'

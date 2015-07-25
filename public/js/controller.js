@@ -1,55 +1,53 @@
 /*
  *  Controller da View Produto
  */
-function ProdutoController(Request){
-    var Ctrl = this;
-
+function ProdutoController($scope, Request){
     // Funcao para criar novo produto
-    Ctrl.addProduto = function(){
-        Ctrl.retornoForm = '';
+    $scope.addProduto = function(){
+        $scope.retornoForm = '';
 
         // Monta o JSON da requisoca
-        var values = {codigo:Ctrl.codigo, nome: Ctrl.nome, quantidade:Ctrl.quantidade};
+        var values = {codigo:$scope.codigo, nome: $scope.nome, quantidade:$scope.quantidade};
 
         // Chama o servico que faz a requisicao HTTP
         Request.get_request("addProduto", values, "POST")
             .success(function(data, status){
                 // Se o produto for cadastrado com sucesso, chama a funcao que limpa o form e exibi a msg de sucesso
                 if(status == 201){
-                    Ctrl.limpaForm();
-                    Ctrl.retornoForm = 'Produto cadastrado com sucesso';
+                    $scope.limpaForm();
+                    $scope.retornoForm = 'Produto cadastrado com sucesso';
                 }else{
                     // exibi a msg de erro
-                    Ctrl.retornoForm = data.errorMsg;
+                    $scope.retornoForm = data.errorMsg;
                 }
             });
     };
 
     // Funcao que valida o codigo do produto
-    Ctrl.validaCodigo = function () {
-        if(Ctrl.codigo != ""){
+    $scope.validaCodigo = function () {
+        if($scope.codigo != ""){
             // Recupera o Codigo digitado
-            var values = {cod:Ctrl.codigo};
+            var values = {cod:$scope.codigo};
 
             // Chama o servico que faz a requisicao HTTP
             Request.get_request("validaCodigo", values, "GET")
                 .success(function(data, status){
                     if(status == 200){
-                        Ctrl.codigoInvalido = true;
-                        Ctrl.errorMsg = 'Código já cadastrado no sistema.';
+                        $scope.codigoInvalido = true;
+                        $scope.errorMsg = 'Código já cadastrado no sistema.';
                     }else{
-                        Ctrl.codigoInvalido = false;
-                        Ctrl.errorMsg = '';
+                        $scope.codigoInvalido = false;
+                        $scope.errorMsg = '';
                     }
                 });
         }
     };
 
     // Funcao que limpra o form apos a criacao de um novo produto
-    Ctrl.limpaForm = function () {
-        Ctrl.codigo = '';
-        Ctrl.nome = '';
-        Ctrl.quantidade = '';
+    $scope.limpaForm = function () {
+        $scope.codigo = '';
+        $scope.nome = '';
+        $scope.quantidade = '';
     };
 }
 
@@ -57,24 +55,22 @@ function ProdutoController(Request){
 /*
  *  Controller da View Estatisticas
  */
-function EstatisticaController(Request){
-    var Ctrl = this;
-
+function EstatisticaController($scope, Request){
     // Funcao que gera as estatisticas
-    Ctrl.mostraEstatistica = function () {
-        if(Ctrl.num != ""){
+    $scope.mostraEstatistica = function () {
+        if($scope.num != ""){
             // Recuperao o valor digitado
-            var values = {num:Ctrl.num};
+            var values = {num:$scope.num};
 
             // Chama o servico que faz a requisicao
             Request.get_request("estatistica", values, "GET")
                 .success(function(data, status){
                     if(status == 201){
                         // monta a lista com os produtos e suas informacoes em caso de sucesso na requisicao
-                        Ctrl.lista = data.prod;
-                        Ctrl.total = data.total;
+                        $scope.produtos = data.prod;
+                        $scope.total = data.total;
                     }else{
-                        Ctrl.lista = '';
+                        $scope.produtos = '';
                     }
                 });
         }
