@@ -20,5 +20,5 @@ Route::group(['prefix' => 'prod'], function(){
 
     Route::get('validaCodigo/{cod}', 'ProdutoController@validaCodigo');
 
-    Route::get('estatistica/{num}', 'ProdutoController@estatistica');
+    Route::get('estatistica/', 'ProdutoController@estatistica');
 });

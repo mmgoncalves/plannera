@@ -9,7 +9,8 @@ Mod.factory('Request', ['RequestHttp', function(RequestHttp){
             switch (tipo){
                 case 'addProduto':      var url = HOST + '/prod/add'; break;
                 case 'validaCodigo':    var url = HOST + '/prod/validaCodigo/'+value.cod; break;
-                case 'estatistica':     var url = HOST + '/prod/estatistica/'+value.num; break;
+                case 'estatistica':     var url = HOST + '/prod/estatistica'; break;
+                case 'getAll':          var url = HOST + '/prod/getAll'; break;
                 default : return false;
             }
             
@@ -27,6 +28,19 @@ Mod.factory('Request', ['RequestHttp', function(RequestHttp){
                 case 'GET' : return $http.get(url);
                 case 'POST': return $http.post(url, value);
             }
+        }
+    };
+}])
+
+// servico que executa e retorna uma requisicao POST ou GET
+.factory('Calc', [function(){
+    return{
+        do: function(produtos, num){
+            for(var i = 0; i < produtos.length; i++){
+                produtos[i].estatistica = (produtos[i].mix * num).toFixed(2);
+            }
+
+            return produtos;
         }
     };
 }]);

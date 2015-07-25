@@ -20,7 +20,7 @@
             </form>
 
             <!-- Monta a tabela com o resultado da requisicao de produtos -->
-            <table class="table table-striped" ng-show="produtos">
+            <table class="table table-striped" ng-show="showProd">
                 <thead>
                     <tr>
                         <th>Código</th>
@@ -44,7 +44,7 @@
 
             <hr/>
 
-            <h4 ng-show="total">Total de produtos vendidos: {{ total }}</h4>
+            <h4 ng-show="showProd">Total de produtos vendidos: {{ total }}</h4>
 
         </div>
     </div>

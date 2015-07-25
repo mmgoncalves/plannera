@@ -55,24 +55,27 @@ function ProdutoController($scope, Request){
 /*
  *  Controller da View Estatisticas
  */
-function EstatisticaController($scope, Request){
-    // Funcao que gera as estatisticas
-    $scope.mostraEstatistica = function () {
-        if($scope.num != ""){
-            // Recuperao o valor digitado
-            var values = {num:$scope.num};
-
-            // Chama o servico que faz a requisicao
-            Request.get_request("estatistica", values, "GET")
-                .success(function(data, status){
-                    if(status == 201){
-                        // monta a lista com os produtos e suas informacoes em caso de sucesso na requisicao
-                        $scope.produtos = data.prod;
-                        $scope.total = data.total;
-                    }else{
-                        $scope.produtos = '';
-                    }
-                });
-        }
+function EstatisticaController($scope, Request, Calc){
+    $scope.mostraEstatistica = function(){
+        var prod = Calc.do($scope.produtos, $scope.num);
+            $scope.produtos = prod;
+            $scope.showProd = true;
     };
+    
+    // Funcao que gera as estatisticas
+    $scope.buscaProdutos = function () {
+        // Chama o servico que faz a requisicao
+        Request.get_request("estatistica", "", "GET")
+            .success(function(data, status){
+                if(status == 201){
+                    // monta a lista com os produtos e suas informacoes em caso de sucesso na requisicao
+                    $scope.produtos = data.prod;
+                    $scope.total = data.total;
+                }else{
+                    $scope.produtos = '';
+                }
+            });
+    };
+    
+    $scope.buscaProdutos();
 }

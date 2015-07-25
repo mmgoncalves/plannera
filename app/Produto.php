@@ -30,7 +30,7 @@ class Produto extends Model
     /*
      * Método que calcula o "mix" do produto, calcula a porcentagem e gera a estatistica final
      */
-    public function gerarEstatistica($num){
+    public function gerarEstatistica(){
         // Pega a quantidade total de produtos vendidos
         $sqlTotal = 'SELECT SUM(quantidade) AS TOTAL FROM produtos';
         $query = DB::select($sqlTotal);
@@ -49,7 +49,7 @@ class Produto extends Model
                 'quantidade' => $v->quantidade,
                 'porcentagem' => round((100 * $v->quantidade) / $total),
                 'mix' => round($v->mix, 2),
-                'estatistica' => round(($v->mix * $num), 2)
+                //'estatistica' => round(($v->mix * $num), 2)
             );
         }
 

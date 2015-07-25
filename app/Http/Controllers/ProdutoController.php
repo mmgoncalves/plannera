@@ -18,6 +18,13 @@ class ProdutoController extends Controller
     }
 
     /*
+     * Retorna todos os produtos cadastrados
+     */
+    public function all(){
+        return $this->prod->all();
+    }
+
+    /*
      * Cadastra um novo produto
      */
     public function add(Request $request){
@@ -53,9 +60,9 @@ class ProdutoController extends Controller
     /*
      * Metodo que gera as estatisticas, porcentagens e calcula o "mix" de cada produto
      */
-    public function estatistica($num){
+    public function estatistica(){
         // Chama o metodo que gera os dados
-        $resp = $this->prod->gerarEstatistica($num);
+        $resp = $this->prod->gerarEstatistica();
 
         // Verifica e da o retorno da requisicao
         if(!$resp){
