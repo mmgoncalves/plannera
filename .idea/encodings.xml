@@ -2,7 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/public/js/controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/js/util.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/public/templates/estatisticas.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/public/templates/produto.html" charset="UTF-8" />
   </component>
