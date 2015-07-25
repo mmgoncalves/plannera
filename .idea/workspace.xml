@@ -49,14 +49,9 @@
       <file leaf-file-name="Produto.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Produto.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1904762">
-              <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
-              <folding>
-                <element signature="e#23#62#0#PHP" expanded="true" />
-                <marker date="1437831800991" expanded="true" signature="381:424" placeholder="SELECT id FR..produtos..." />
-                <marker date="1437831800991" expanded="true" signature="908:953" placeholder="SELECT SUM(q..produtos..." />
-                <marker date="1437831800991" expanded="true" signature="1136:1240" placeholder="SELECT id, c..produtos..." />
-              </folding>
+            <state vertical-scroll-proportion="0.42857143">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -568,14 +563,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Produto.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1904762">
-          <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
-          <folding>
-            <element signature="e#23#62#0#PHP" expanded="true" />
-            <marker date="1437831800991" expanded="true" signature="381:424" placeholder="SELECT id FR..produtos..." />
-            <marker date="1437831800991" expanded="true" signature="908:953" placeholder="SELECT SUM(q..produtos..." />
-            <marker date="1437831800991" expanded="true" signature="1136:1240" placeholder="SELECT id, c..produtos..." />
-          </folding>
+        <state vertical-scroll-proportion="0.42857143">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

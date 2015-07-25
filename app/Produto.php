@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class Produto extends Model
 {
@@ -14,9 +13,8 @@ class Produto extends Model
      * Método que valida o codigo de um produto
      */
     public function validaCodigo($codigo){
-        // prepara e executa a query
-        $sql = 'SELECT id FROM produtos WHERE codigo = :cod';
-        $rows = DB::select($sql, [':cod' => $codigo]);
+        // Verifica se o codigo ja esta cadastrado
+        $rows = $this->where('codigo', $codigo)->get();
 
         if(count($rows) > 0){
             // retorna false caso o codigo seja invalido
@@ -32,26 +30,12 @@ class Produto extends Model
      */
     public function gerarEstatistica(){
         // Pega a quantidade total de produtos vendidos
-        $sqlTotal = 'SELECT SUM(quantidade) AS TOTAL FROM produtos';
-        $query = DB::select($sqlTotal);
-        $total = $query[0]->TOTAL;
+        $total = $this->sum('quantidade');
 
-        // Pega as informacoes dos produtos, e calcula o valor do "mix" de cada produto
-        $sql = 'SELECT id, codigo, nome, quantidade, (quantidade / :total) AS mix FROM produtos ORDER BY quantidade DESC;';
-        $query = DB::select($sql, [':total' => $total]);
+        // Recupera os produtos ordenados por quantidade
+        $query = $this->select('id', 'codigo', 'nome', 'quantidade')->orderBy('quantidade', 'DESC')->get();
 
-        // Calcula a porcentagem de venda de cada produto, e monta o array de retorno
-        foreach ($query as $key => $v) {
-            $resp[] = array(
-                'id' => $v->id,
-                'codigo' => $v->codigo,
-                'nome' => $v->nome,
-                'quantidade' => $v->quantidade,
-                'porcentagem' => round((100 * $v->quantidade) / $total),
-                'mix' => round($v->mix, 2)
-            );
-        }
-
-        return array('total' => $total, 'prod' =>$resp);
+        // retorna a quantidade total de produtos vendidos, e uma lista com todos os produtos
+        return array('total' => $total, 'prod' =>$query);
     }
 }

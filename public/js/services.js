@@ -35,8 +35,10 @@ Mod.factory('Request', ['RequestHttp', function(RequestHttp){
 // servico que executa e retorna uma requisicao POST ou GET
 .factory('Calc', [function(){
     return{
-        do: function(produtos, num){
+        do: function(produtos, total, num){
             for(var i = 0; i < produtos.length; i++){
+                produtos[i].porcentagem = ((100 * produtos[i].quantidade) / total).toFixed(2);
+                produtos[i].mix = (produtos[i].quantidade / total).toFixed(2);
                 produtos[i].estatistica = (produtos[i].mix * num).toFixed(2);
             }
 

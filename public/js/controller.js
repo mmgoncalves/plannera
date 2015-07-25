@@ -57,7 +57,7 @@ function ProdutoController($scope, Request){
  */
 function EstatisticaController($scope, Request, Calc){
     $scope.mostraEstatistica = function(){
-        var prod = Calc.do($scope.produtos, $scope.num);
+        var prod = Calc.do($scope.produtos, $scope.total, $scope.num);
             $scope.produtos = prod;
             $scope.showProd = true;
     };
