@@ -48,8 +48,7 @@ class Produto extends Model
                 'nome' => $v->nome,
                 'quantidade' => $v->quantidade,
                 'porcentagem' => round((100 * $v->quantidade) / $total),
-                'mix' => round($v->mix, 2),
-                //'estatistica' => round(($v->mix * $num), 2)
+                'mix' => round($v->mix, 2)
             );
         }
 

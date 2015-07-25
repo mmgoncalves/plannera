@@ -49,13 +49,13 @@
       <file leaf-file-name="Produto.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Produto.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71428573">
-              <caret line="51" column="30" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="30" />
+            <state vertical-scroll-proportion="1.1904762">
+              <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
               <folding>
                 <element signature="e#23#62#0#PHP" expanded="true" />
-                <marker date="1437829829383" expanded="true" signature="381:424" placeholder="SELECT id FR..produtos..." />
-                <marker date="1437829829383" expanded="true" signature="908:953" placeholder="SELECT SUM(q..produtos..." />
-                <marker date="1437829829383" expanded="true" signature="1136:1240" placeholder="SELECT id, c..produtos..." />
+                <marker date="1437831800991" expanded="true" signature="381:424" placeholder="SELECT id FR..produtos..." />
+                <marker date="1437831800991" expanded="true" signature="908:953" placeholder="SELECT SUM(q..produtos..." />
+                <marker date="1437831800991" expanded="true" signature="1136:1240" placeholder="SELECT id, c..produtos..." />
               </folding>
             </state>
           </provider>
@@ -251,7 +251,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -568,13 +568,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Produto.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71428573">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="30" />
+        <state vertical-scroll-proportion="1.1904762">
+          <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
           <folding>
             <element signature="e#23#62#0#PHP" expanded="true" />
-            <marker date="1437829829383" expanded="true" signature="381:424" placeholder="SELECT id FR..produtos..." />
-            <marker date="1437829829383" expanded="true" signature="908:953" placeholder="SELECT SUM(q..produtos..." />
-            <marker date="1437829829383" expanded="true" signature="1136:1240" placeholder="SELECT id, c..produtos..." />
+            <marker date="1437831800991" expanded="true" signature="381:424" placeholder="SELECT id FR..produtos..." />
+            <marker date="1437831800991" expanded="true" signature="908:953" placeholder="SELECT SUM(q..produtos..." />
+            <marker date="1437831800991" expanded="true" signature="1136:1240" placeholder="SELECT id, c..produtos..." />
           </folding>
         </state>
       </provider>
