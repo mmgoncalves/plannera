@@ -1,5 +1,5 @@
-var HOST = 'http://plannera.mateusmarques.net';
-
+//var HOST = 'http://plannera.mateusmarques.net';
+var HOST = 'http://localhost:8000';
 
 // servico que controla as requisicoes HTTP
 Mod.factory('Request', ['RequestHttp', function(RequestHttp){
